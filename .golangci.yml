@@ -1,0 +1,57 @@
+run:
+  timeout: 5m
+  tests: true
+
+linters:
+  enable:
+    - asciicheck
+    - bodyclose
+    - dogsled
+    - durationcheck
+    - errname
+    - errorlint
+    - exhaustive
+    - exportloopref
+    - gocritic
+    - gofmt
+    - goimports
+    - gomoddirectives
+    - gosimple
+    - govet
+    - ineffassign
+    - importas
+    - misspell
+    - noctx
+    - prealloc
+    - predeclared
+    - revive
+    - staticcheck
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+    - wrapcheck
+
+linters-settings:
+  unparam:
+    check-exported: false
+  unused:
+    check-exported: false
+  wrapcheck:
+    ignoreSigs:
+      - (context.Context).Err()
+      - fmt.Errorf(
+      - errors.New(
+
+issues:
+  exclude-use-default: false
+  max-same-issues: 0
+  exclude-rules:
+    - linters:
+        - revive
+      text: "package-comments:"
+    - linters:
+        - revive
+      text: "exported:"
