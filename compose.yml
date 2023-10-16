@@ -1,0 +1,6 @@
+services:
+  multiproxy:
+    build: .
+    network_mode: host
+    restart: unless-stopped
+    command: "/multiproxy -ports ${MULTIPROXY_PORTS:-10000-10100:10101-10201} -target ${MULTIPROXY_TARGET:-127.0.0.1}"
